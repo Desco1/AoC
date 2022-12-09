@@ -2,4 +2,5 @@
 /.gradle/
 /build/
 /.idea/
+/puzzleinputs/
 /src/main/resources/
