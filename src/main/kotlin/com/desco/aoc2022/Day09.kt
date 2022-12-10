@@ -3,8 +3,6 @@ package com.desco.aoc2022
 import com.desco.Day
 import kotlin.math.sign
 
-fun main() = Day09.second()
-
 object Day09: Day(9, 2022) {
 
     private val movementRegex = "([UDLR]) (\\d+)".toRegex()
