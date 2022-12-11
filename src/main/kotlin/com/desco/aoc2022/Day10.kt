@@ -3,8 +3,6 @@ package com.desco.aoc2022
 import com.desco.Day
 import kotlin.math.floor
 
-fun main() = Day10.second()
-
 object Day10: Day(10, 2022) {
 
     override fun partOne(): Any {
