@@ -4,8 +4,6 @@ import com.desco.Day
 import kotlin.math.max
 import kotlin.math.min
 
-fun main() = Day14.second()
-
 object Day14: Day(14, 2022) {
 
     private var map: Array<Array<Boolean>>
