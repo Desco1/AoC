@@ -8,7 +8,7 @@ object Day13: Day(13, 2015) {
     private val personSet = mutableSetOf<String>()
     private val infoMap = mutableMapOf<Pair<String, String>, Int>()
 
-    override fun partOne(): Any {
+    init {
         inputList.forEach { s ->
             instRegex.matchEntire(s)?.let {
                 val (first, gainLose, amount, second) = it.destructured
@@ -18,13 +18,9 @@ object Day13: Day(13, 2015) {
                 personSet.add(second)
             }
         }
+    }
 
-        personSet.forEach {
-            infoMap[it to "Me"] = 0
-            infoMap["Me" to it] = 0
-        }
-        personSet.add("Me")
-
+    override fun partOne(): Any {
         return allPermutations(personSet.toList()).maxOf {
             it.windowedWithLoop(2, 1).sumOf {
                 infoMap[it[0] to it[1]]!! + infoMap[it[1] to it[0]]!!
@@ -33,7 +29,13 @@ object Day13: Day(13, 2015) {
     }
 
     override fun partTwo(): Any {
-        TODO("Not yet implemented")
+        personSet.forEach {
+            infoMap[it to "Me"] = 0
+            infoMap["Me" to it] = 0
+        }
+        personSet.add("Me")
+
+        return partOne()
     }
 
     private fun allPermutations(list: List<String>): List<List<String>> {
